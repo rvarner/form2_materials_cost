@@ -54,16 +54,15 @@ Browser.drive {
 
     // Click login
     $('div.js-submit.button.expand').click()
-    sleep(2500)
+    sleep(2000)
     go 'https://formlabs.com/dashboard/#prints'
-    sleep(2500)
+    sleep(2000)
 
     def prints = $('div#prints-list div.print-item')
     println "Found ${prints.size()} prints"
     prints.each { p ->
         p.click()
-        sleep(800)
-
+        sleep(700)
         // Get the type
         def type = p.find('div.print-item__material span.material-badge').text().trim().toLowerCase()
         println "Type: $type"
@@ -96,6 +95,4 @@ Browser.drive {
         sleep(500)
     }
     prints[0].click()
-    sleep(1000)
-
 }
