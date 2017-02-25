@@ -9,16 +9,19 @@ user = ''
 pass = ''
 
 
-if (args.length < 2 && user.isEmpty() && pass.isEmpty()) {
+if (user.isEmpty() && pass.isEmpty()) {
     // Get the user / pass from Last Pass
-    p = "lpass show formlabs.com".execute()
-    lines = p.text.readLines()
-    user = lines[1].split(/:\s/)[1]
-    pass = lines[2].split(/:\s/)[1]
-    p.waitFor()
-} else if (args.length == 2) {
-    user = args[0]
-    pass = args[1]
+    try {
+        p = "lpass show formlabs.com".execute()
+        lines = p.text.readLines()
+        user = lines[1].split(/:\s/)[1]
+        pass = lines[2].split(/:\s/)[1]
+        p.waitFor()
+    }
+    catch(Exception) {
+        System.err << "Either LastPass is not installed or you are not logged in. Hint: lpass login <email>"
+        System.exit(1)
+    }
 }
 
 

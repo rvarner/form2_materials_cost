@@ -5,10 +5,31 @@ Uses [Geb](http://www.google.com) and [Groovy](http://groovy.codehaus.org), so y
 
 
 ## Installation
-You need to have [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
+You need to have [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed. Do that.
 
-## Configuration
-If you have [LastPass](https://www.lastpass.com) and you have the CLI tools installed, you need to log in first:
+### Edit
+Edit the beginning of **src/main/groovy/form2\_materials\_cost.groovy** where it says
+
+```python
+user = ''
+pass = ''
+```
+and enter your formlabs.com login.
+
+### Build (optional)
+If you want to build this as an executable, run:
+
+```
+./gradlew clean build
+```
+Your deliverables will be in
+
+```
+build/distributions
+```
+
+## Configuration (optional)
+If you did not specify a user/pass, and you have [LastPass](https://www.lastpass.com) and the CLI tools installed ```brew install lastpass-cli```, you need to log in first:
 
 ```
 lpass login <email>
@@ -17,18 +38,6 @@ lpass login <email>
 
 ## Run
 Once Java is installed, ```cd form2_materials_cost/``` and type:
-
-### If using LastPass
-```
-./gradlew run
-```
-### If using args
-```
-./gradlew run <user> <pass>
-```
-
-### (Optional)
-You can optionally add your user/pass to the beginning of ```src/main/groovy/form2_matersials_cost.groovy``` and then run:
 
 ```
 ./gradlew run
