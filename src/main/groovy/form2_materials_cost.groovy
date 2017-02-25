@@ -103,5 +103,5 @@ Browser.drive {
         }
         sleep(500)
     }
-    prints[0].click()
+    sleep(700)
 }
