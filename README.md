@@ -7,7 +7,8 @@ Uses [Geb](http://www.google.com) and [Groovy](http://groovy.codehaus.org), so y
 ## Installation
 You need to have [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
 
-Once Java is installed, go into the **form2\_materials\_cost** directory and type:
+## Run
+Once Java is installed, ```cd form2_materials_cost/``` and type:
 
 ```
 ./gradlew run
