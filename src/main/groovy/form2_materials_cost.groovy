@@ -4,17 +4,23 @@
 
 import geb.Browser
 
-// Get the user / pass from Last Pass
-// NOTE: If NOT using LastPass: Comment this out and set user/pass variables manually
-p = "lpass show formlabs.com".execute()
-lines = p.text.readLines()
-user = lines[1].split(/:\s/)[1]
-pass = lines[2].split(/:\s/)[1]
-p.waitFor()
+// Fill these in manually if desired
+user = ''
+pass = ''
 
-// Uncomment and fill with username (usually email) and password
-//user = ''
-//pass = ''
+
+if (args.length < 2 && user.isEmpty() && pass.isEmpty()) {
+    // Get the user / pass from Last Pass
+    p = "lpass show formlabs.com".execute()
+    lines = p.text.readLines()
+    user = lines[1].split(/:\s/)[1]
+    pass = lines[2].split(/:\s/)[1]
+    p.waitFor()
+} else if (args.length == 2) {
+    user = args[0]
+    pass = args[1]
+}
+
 
 prices = [
         durable    : 175.0,
